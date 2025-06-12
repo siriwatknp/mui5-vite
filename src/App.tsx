@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  StyledEngineProvider,
   ThemeProvider,
   createTheme,
   CssBaseline,
@@ -14,6 +15,7 @@ import {
 import { Favorite, GitHub } from "@mui/icons-material";
 
 const figmaTheme = createTheme({
+  modularCssLayers: true,
   palette: {
     primary: {
       main: "#1976d2",
@@ -89,76 +91,82 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <ThemeProvider theme={figmaTheme}>
-      <CssBaseline />
-      <Container 
-        maxWidth="md" 
-        sx={{ 
-          minHeight: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          py: 4 
-        }}
-      >
-        <Box textAlign="center" mb={4}>
-          <Stack direction="row" spacing={2} justifyContent="center" mb={3}>
-            <Box
-              component="img"
-              src="/vite.svg"
-              alt="Vite logo"
-              sx={{ height: 64, width: 64 }}
-            />
-            <Favorite
-              sx={{
-                fontSize: 64,
-                color: "secondary.main",
-                alignSelf: "center",
-              }}
-            />
-            <GitHub
-              sx={{ fontSize: 64, color: "primary.main", alignSelf: "center" }}
-            />
-          </Stack>
+    <StyledEngineProvider enableCssLayer>
+      <ThemeProvider theme={figmaTheme}>
+        <CssBaseline />
+        <Container
+          maxWidth="md"
+          sx={{
+            minHeight: "100vh",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            py: 4,
+          }}
+        >
+          <Box textAlign="center" mb={4}>
+            <Stack direction="row" spacing={2} justifyContent="center" mb={3}>
+              <Box
+                component="img"
+                src="/vite.svg"
+                alt="Vite logo"
+                sx={{ height: 64, width: 64 }}
+              />
+              <Favorite
+                sx={{
+                  fontSize: 64,
+                  color: "secondary.main",
+                  alignSelf: "center",
+                }}
+              />
+              <GitHub
+                sx={{
+                  fontSize: 64,
+                  color: "primary.main",
+                  alignSelf: "center",
+                }}
+              />
+            </Stack>
 
-          <Typography variant="h1" gutterBottom>
-            Material UI + Vite
-          </Typography>
-
-          <Typography variant="body1" color="text.secondary" mb={4}>
-            A modern React application with Material UI and custom
-            Figma-inspired design system
-          </Typography>
-        </Box>
-
-        <Card sx={{ maxWidth: 400, mx: "auto", mb: 4 }}>
-          <CardContent sx={{ textAlign: "center", p: 3 }}>
-            <Typography variant="h2" mb={2}>
-              Interactive Counter
+            <Typography variant="h1" gutterBottom>
+              Material UI + Vite
             </Typography>
 
-            <Button
-              variant="contained"
-              size="large"
-              onClick={() => setCount((count) => count + 1)}
-              sx={{ mb: 2, minWidth: 200 }}
-            >
-              Count is {count}
-            </Button>
+            <Typography variant="body1" color="text.secondary" mb={4}>
+              A modern React application with Material UI and custom
+              Figma-inspired design system
+            </Typography>
+          </Box>
 
+          <Card sx={{ maxWidth: 400, mx: "auto", mb: 4 }}>
+            <CardContent sx={{ textAlign: "center", p: 3 }}>
+              <Typography variant="h2" mb={2}>
+                Interactive Counter
+              </Typography>
+
+              <Button
+                variant="contained"
+                size="large"
+                onClick={() => setCount((count) => count + 1)}
+                sx={{ mb: 2, minWidth: 200 }}
+              >
+                Count is {count}
+              </Button>
+
+              <Typography variant="body1" color="text.secondary">
+                Click the button to increment the counter
+              </Typography>
+            </CardContent>
+          </Card>
+
+          <Box textAlign="center">
             <Typography variant="body1" color="text.secondary">
-              Click the button to increment the counter
+              Edit <code>src/App.tsx</code> and save to test HMR
             </Typography>
-          </CardContent>
-        </Card>
-
-        <Box textAlign="center">
-          <Typography variant="body1" color="text.secondary">
-            Edit <code>src/App.tsx</code> and save to test HMR
-          </Typography>
-        </Box>
-      </Container>
-    </ThemeProvider>
+          </Box>
+        </Container>
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 }
 
