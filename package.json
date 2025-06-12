@@ -12,8 +12,8 @@
   "dependencies": {
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.0",
-    "@mui/icons-material": "https://pkg.csb.dev/mui/material-ui/commit/f58e85bc/@mui/icons-material",
-    "@mui/material": "https://pkg.csb.dev/mui/material-ui/commit/f58e85bc/@mui/material",
+    "@mui/icons-material": "https://pkg.csb.dev/mui/material-ui/commit/b464865b/@mui/icons-material",
+    "@mui/material": "https://pkg.csb.dev/mui/material-ui/commit/b464865b/@mui/material",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },

@@ -15,6 +15,7 @@ import {
 import { Favorite, GitHub } from "@mui/icons-material";
 
 const figmaTheme = createTheme({
+  cssVariables: true,
   modularCssLayers: true,
   palette: {
     primary: {
